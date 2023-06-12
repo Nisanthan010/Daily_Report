@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daily_Report.views.ExcelGenerateReport"
+             Title="Report">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text ="From"></Label>
+            <DatePicker x:Name="FromDatePicker" DateSelected="FromDatePicker_DateSelected" />
+            <Label Text ="To"></Label>
+            <DatePicker x:Name="ToDatePicker" DateSelected="ToDatePicker_DateSelected" />
+            <Button Text="Generate" Clicked="generate_csv" />
+            <CollectionView x:Name="Excel_client_collection"
+                SelectionMode="Single"
+                SelectionChanged="Excel_client_collection_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+
+                        <Grid Margin="10,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Client_name}" FontSize="25"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Client_DealerDetail_cement}" FontSize="25"/>
+
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daily_Report.views.EmailSetup">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+
+                <!-- First row, first column -->
+                <Label Grid.Row="0" Grid.Column="0" Text="Receiver " FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- First row, second column -->
+                <Entry Grid.Row="0" Grid.Column="1"  />
+
+                <!-- Second row, first column -->
+                <Label Grid.Row="1" Grid.Column="0" Text="Sender "  FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- Second row, second column -->
+                <Entry Grid.Row="1" Grid.Column="1"  />
+
+                <!-- Second row, first column -->
+                <Label Grid.Row="2" Grid.Column="0" Padding="0,10,0,0" Text="Stmp Password " FontSize="25"/>
+                
+                <Entry Grid.Row="2" Grid.Column="1"  />
+            </Grid>
+            
+            <Button Text="Save" VerticalOptions="End" Padding="0,10,0,10" Margin="100"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

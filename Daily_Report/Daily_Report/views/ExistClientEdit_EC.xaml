@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daily_Report.views.ExistClientEdit_EC">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" x:Name="client_name" FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- First row, second column -->
+                <Label Grid.Row="0" Grid.Column="1" x:Name="client_number" FontSize="25" />
+
+                <!-- First row, first column -->
+                <Label Grid.Row="1" Grid.Column="0" Text="Cement " FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- First row, second column -->
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="Cement_client"  />
+
+                <!-- Second row, first column -->
+                <Label Grid.Row="2" Grid.Column="0" Text="Dealer "  FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- Second row, second column -->
+                <Entry Grid.Row="2" Grid.Column="1" x:Name="Dealer_client"  />
+
+                <!-- Second row, first column -->
+                <Label Grid.Row="3" Grid.Column="0" Padding="0,10,0,0" Text="Quantity " FontSize="25"/>
+
+                <Entry Grid.Row="3" Grid.Column="1"  x:Name="Quantity_client"/>
+            </Grid>
+            
+            <Button Text="Update" VerticalOptions="End" Padding="0,10,0,10" Margin="100" Clicked="update_client_Clicked"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

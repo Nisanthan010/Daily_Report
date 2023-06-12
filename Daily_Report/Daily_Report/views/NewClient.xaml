@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daily_Report.views.NewClient"
+             Title="New Client">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Padding="10,50,10,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    
+                </Grid.ColumnDefinitions>
+
+                <!-- First row, first column -->
+                    <Label Grid.Row="0" Grid.Column="0" Text="Name " FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- First row, second column -->
+                <Entry Grid.Row="0" Grid.Column="1"  x:Name="Client_name"/>
+
+                <!-- Second row, first column -->
+                    <Label Grid.Row="1" Grid.Column="0" Text="Phone Number "  FontSize="25" Padding="0,10,0,0"/>
+
+                <!-- Second row, second column -->
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="Phone_number" />
+
+                <!-- Second row, first column -->
+                    <Label Grid.Row="2" Grid.Column="0" Padding="0,10,0,0" Text="Location " FontSize="25"/>
+
+                <!-- Second row, second column -->
+                    <Entry Grid.Row="2" Grid.Column="1" x:Name="Location"  />
+
+                <!-- Second row, first column -->
+                    <Label Grid.Row="3" Grid.Column="0" Padding="0,10,0,0" Text="Remarks :" FontSize="25" />
+
+            </Grid>
+                <Editor x:Name="Remark_newclient"/>
+                <Button Text="Save" VerticalOptions="End" Padding="0,10,0,10" Margin="100" Clicked="NewClient_save_clicked"></Button>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
