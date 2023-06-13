@@ -180,29 +180,78 @@ namespace Daily_Report.Services
             List<Get_client_excel> results = new List<Get_client_excel> ();
             int maxQuery=0;
             int minQuery=0;
+            int count=0, tcount=0;
+            string minu="";
+            string maxu="";
+            string min = min_date.ToString("yyyy-MM-dd");
+            string max = max_date.ToString("yyyy-MM-dd");
 
-            string minu = min_date.ToString("yyyy-MM-dd");
-         
-            string querymin = $"SELECT COUNT(*) FROM New_client where Client_createddate like '%{minu}%' ";
+            for (int i=0; tcount <= 0 ; i++)
+            {
+                if (min != max)
+                {
+                    DateTime originalDate = min_date;
+                    DateTime increaseDate = originalDate.AddDays(+i);
+
+                    minu = increaseDate.ToString("yyyy-MM-dd");
+
+                    string querymin = $"SELECT COUNT(*) FROM New_client where Client_createddate like '%{minu}%' ";
+                    Console.WriteLine($"{i} {minu}");
+                    tcount = Task_DB.ExecuteScalar<int>(querymin);
+                    count=tcount;
+                    Console.WriteLine(tcount);
+                }
+                else
+                {
+                    minu = min_date.ToString("yyyy-MM-dd");
+
+                    string querymin = $"SELECT COUNT(*) FROM New_client where Client_createddate like '%{minu}%' ";
+                    Console.WriteLine($"{i} {minu}");
+                    count = Task_DB.ExecuteScalar<int>(querymin);
+                    Console.WriteLine(tcount);
+                    tcount = 1;
+                }
+            }        
             // Execute the query and retrieve the count
-            int count = Task_DB.ExecuteScalar<int>(querymin);
             if (count > 0)
             {
                  minQuery = Task_DB.Table<New_client>()
                  .Where(x => x.Client_createddate.Contains(minu))
                  .Min(x => x.New_client_Id);
             }
-            string maxu = max_date.ToString("yyyy-MM-dd");
-            string querymax = $"SELECT COUNT(*) FROM New_client where Client_createddate like '%{maxu}%' ";
-            // Execute the query and retrieve the count
-            count = Task_DB.ExecuteScalar<int>(querymax);
+
+            tcount = 0;
+            for (int i = 0; tcount <= 0; i++)
+            {
+                if (min != max)
+                {
+                    DateTime originalDate = max_date;
+                    DateTime reducedDate = originalDate.AddDays(-i);
+                    maxu = reducedDate.ToString("yyyy-MM-dd");
+                    Console.WriteLine($"{i} {maxu}");
+                    string querymax = $"SELECT COUNT(*) FROM New_client where Client_createddate like '%{maxu}%' ";
+                    // Execute the query and retrieve the count
+                    tcount = Task_DB.ExecuteScalar<int>(querymax);
+                    count = tcount;
+                    Console.WriteLine(tcount);
+                }
+                else
+                {
+                    maxu = max_date.ToString("yyyy-MM-dd");
+
+                    string querymin = $"SELECT COUNT(*) FROM New_client where Client_createddate like '%{maxu}%' ";
+                    Console.WriteLine($"{i} {maxu}");
+                    count = Task_DB.ExecuteScalar<int>(querymin);
+                    tcount=1;
+                }
+            }
             if (count > 0)
             {
                  maxQuery = Task_DB.Table<New_client>()
                .Where(x => x.Client_createddate.Contains(maxu))
                .Max(x => x.New_client_Id);
             }
-          
+            
             if (minQuery <= maxQuery )
             {
                 string query = $"SELECT * FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";

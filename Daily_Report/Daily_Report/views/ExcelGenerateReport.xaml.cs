@@ -25,6 +25,7 @@ namespace Daily_Report.views
             Excel_client_collection.ItemsSource = SQLhelper.SQL_Database.Get_Client_excel();
             Fromdate=DateTime.Now;
             Todate= DateTime.Now;
+            FromDatePicker.MaximumDate=Fromdate;
         }
         
         private void generate_csv(object sender, EventArgs e)
@@ -48,11 +49,15 @@ namespace Daily_Report.views
         private void ToDatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
             Todate = e.NewDate;
+            FromDatePicker.Date = Todate;
+            FromDatePicker.MaximumDate = Todate;
+            Fromdate=e.NewDate;
         }
 
         private void FromDatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
             Fromdate = e.NewDate;
+            ToDatePicker.MinimumDate=Fromdate;
         }
     }
 }
