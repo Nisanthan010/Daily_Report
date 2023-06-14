@@ -13,9 +13,10 @@
                    
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    
-                </Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+
+                    </Grid.ColumnDefinitions>
 
                 <!-- First row, first column -->
                     <Label Grid.Row="0" Grid.Column="0" Text="Name " FontSize="25" Padding="0,10,0,0"/>
@@ -27,7 +28,7 @@
                     <Label Grid.Row="1" Grid.Column="0" Text="Phone Number "  FontSize="25" Padding="0,10,0,0"/>
 
                 <!-- Second row, second column -->
-                <Entry Grid.Row="1" Grid.Column="1" x:Name="Phone_number" />
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="Phone_number" Keyboard="Telephone" />
 
                 <!-- Second row, first column -->
                     <Label Grid.Row="2" Grid.Column="0" Padding="0,10,0,0" Text="Location " FontSize="25"/>

@@ -101,7 +101,7 @@ namespace Daily_Report.Services
                 Insert_SMTPRecord();
             }
             
-            Email_Set = Email_sendDetail();
+           
             return  Task_DB.Update(Email_Set);
         }
         public SMTP_EmailSetup Email_sendDetail()
@@ -123,7 +123,7 @@ namespace Daily_Report.Services
             DateTime now = Get_date;
             string formattedDate = now.ToString("yyyy-MM-dd");
 
-            string query = $"SELECT * FROM New_client WHERE Client_createddate like '%{formattedDate}%'";
+            string query = $"SELECT * FROM New_client WHERE Client_createddate like '%{formattedDate}%' AND New_client_Id NOT IN (SELECT NewClient_J_id FROM Client_DealerDetail)";
             //List<ResultType> results = connection.Query<ResultType>(query);
               return Task_DB.Query<New_client>(query);
         }

@@ -23,7 +23,9 @@ namespace Daily_Report.views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-           New_client_collection.ItemsSource =  SQLhelper.SQL_Database.Get_New_client();
+            myDatePicker = DateTime.Now;
+            DatePicker_client.Date = myDatePicker;
+           New_client_collection.ItemsSource = SQLhelper.SQL_Database.Get_New_clientDate(myDatePicker);
         }
        public New_client Last_selected;
         private async void New_client_collection_SelectionChanged(object sender, SelectionChangedEventArgs e)

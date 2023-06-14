@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             
-            <Grid Margin="10,0,10,0" >
+            <Grid Margin="10,10,10,10" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
 
@@ -16,12 +16,10 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- First row, first column -->
-                <Label Grid.Row="0" Grid.Column="0" Text="Date" FontSize="25" />
+                <Label Grid.Row="0" Grid.Column="0" Text="Date" FontSize="30" />
 
                 <!-- First row, second column -->
-                <DatePicker x:Name="DatePicker_client" DateSelected="DatePicker_client_DateSelected" Grid.Row="0" Grid.Column="1" Format="MM/dd/yyyy" />
-
-                <Button Text="Find" Grid.Row="0" Grid.Column="2"  />
+                <DatePicker x:Name="DatePicker_client" DateSelected="DatePicker_client_DateSelected" Grid.Row="0" Grid.Column="1" FontSize="25" Format="MM/dd/yyyy" />
 
             </Grid>
            
@@ -42,7 +40,7 @@
 
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding Client_name}" FontSize="25"/>
-                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Client_createddate}" FontSize="25"/>
+                                       <Label Grid.Row="0" Grid.Column="1" Text="{Binding Client_location}" FontSize="25"/>
                         
                                  </Grid>
                             </StackLayout>
