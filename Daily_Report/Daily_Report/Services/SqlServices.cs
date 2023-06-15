@@ -254,13 +254,16 @@ namespace Daily_Report.Services
             
             if (minQuery <= maxQuery )
             {
-                string query = $"SELECT * FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";
-                 results = Task_DB.Query<Get_client_excel>(query);
+                string query = $"SELECT Client_name,Client_number,Client_location,Client_DealerDetail_cement,Client_DealerDetail_cement,Client_DealerDetail_quanity,Client_Remark,Client_createddate FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";
+
+                //string query = $"SELECT * FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";
+                results = Task_DB.Query<Get_client_excel>(query);
             }
             else 
             {
                 maxQuery = minQuery;
-                string query = $"SELECT * FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";
+                string query = $"SELECT Client_name,Client_number,Client_location,Client_DealerDetail_cement,Client_DealerDetail_cement,Client_DealerDetail_quanity,Client_Remark,Client_createddate FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";
+                // string query = $"SELECT * FROM New_client LEFT JOIN Client_DealerDetail ON New_client.New_client_Id = Client_DealerDetail.NewClient_J_id WHERE New_client.New_client_Id BETWEEN {minQuery} AND {maxQuery} ";
                 results = Task_DB.Query<Get_client_excel>(query);
             }
             return results;
